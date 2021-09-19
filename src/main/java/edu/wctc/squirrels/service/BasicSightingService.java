@@ -27,4 +27,14 @@ public class BasicSightingService implements SightingService {
     public List<Sighting> getSightingsForSquirrel(int squirrelId) {
         return sightingRepository.findAllBySquirrelIdOrderBySpottedAt(squirrelId);
     }
+
+    @Override
+    public void fakeSquirrel(int squirrelId) {
+        for (Sighting s : sightingRepository.findAll()) {
+            if(s.getSquirrelId() == squirrelId){
+                sightingRepository.delete(s);
+            }
+
+        }
+    }
 }

@@ -76,6 +76,17 @@ public class SightingController {
         return "sighting-form";
     }
 
+    @RequestMapping("/delete")
+    public String deleteSquirrel(Model model,
+                                   @RequestParam("id") int squirrelId) {
+        //model.addAttribute("pageTitle", "Delete Squirrel");
+        sightingService.fakeSquirrel(squirrelId);
+        squirrelService.fakeSquirrel(squirrelId);
+
+
+        return "index";
+    }
+
     @RequestMapping("/list")
     public String showSquirrelList(Model model) {
         model.addAttribute("pageTitle", "Pick a Squirrel");

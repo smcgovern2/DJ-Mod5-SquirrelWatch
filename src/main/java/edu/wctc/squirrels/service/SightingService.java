@@ -9,4 +9,6 @@ public interface SightingService {
     void saveSighting(Sighting sighting);
 
     List<Sighting> getSightingsForSquirrel(int squirrelId);
+
+    void fakeSquirrel (int squirrelId);
 }

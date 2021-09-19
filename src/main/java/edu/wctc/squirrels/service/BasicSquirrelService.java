@@ -18,6 +18,13 @@ public class BasicSquirrelService implements SquirrelService {
         this.squirrelRepository = sr;
     }
 
+    public void fakeSquirrel(int squirrelId){
+        Optional<Squirrel> s = squirrelRepository.findById(squirrelId);
+        if (s.isPresent()) {
+            squirrelRepository.deleteById(squirrelId);
+        }
+    }
+
     @Override
     public Squirrel getSquirrel(int squirrelId) {
         Optional<Squirrel> s = squirrelRepository.findById(squirrelId);
